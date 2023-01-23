@@ -6,10 +6,10 @@ def __getPath(of):
     rel_path = f'src/{of}'
     return os.path.join(script_dir, rel_path)
 
-def getShrekScript():
+def __getPreprocessed(path):
     paragraphs = []
     
-    file_path = __getPath('shrek.txt')
+    file_path = __getPath(path)
 
     with io.open(file_path, mode='r', encoding='utf-8') as file:
         temp = ''
@@ -21,6 +21,12 @@ def getShrekScript():
                 temp += line
 
     return paragraphs
+
+def getShrekScript():
+    return __getPreprocessed('shrek.txt')
+
+def getBrNationalAnthem():
+    return __getPreprocessed('br_national_anthem.txt')
 
 def getBible():
     paragraphs = []
@@ -34,4 +40,4 @@ def getBible():
     return paragraphs
 
 if __name__ == "__main__":
-    print(getShrekScript())
+    print(getBrNationalAnthem())
