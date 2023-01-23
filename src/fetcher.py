@@ -3,7 +3,7 @@ import os
 
 def __getPath(of):
     script_dir = os.path.dirname(__file__)
-    rel_path = f'src/{of}'
+    rel_path = f'data/{of}'
     return os.path.join(script_dir, rel_path)
 
 def __getPreprocessed(path):
