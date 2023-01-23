@@ -18,3 +18,6 @@ def getShrekScript():
                 temp += line
 
     return paragraphs
+
+if __name__ == "__main__":
+    print(getShrekScript())
