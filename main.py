@@ -5,7 +5,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-from movie_scripts.shrek import getShrekScript
+import data.fetcher as DF
 
 import time
 
@@ -41,7 +41,7 @@ contact.click()
 
 # write text
 message_box = driver.find_element(By.XPATH, "//div[@title='Type a message']")
-messages = getShrekScript()
+messages = DF.getBible()
 for message in messages:
     message_box.send_keys(message + Keys.ENTER)
     if message != messages[-1]:
