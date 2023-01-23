@@ -5,15 +5,14 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+from movie_scripts.shrek import getShrekScript
 
 import time
 
 # -- #
 # customization
 target = 'target'
-message = 'message'
-number_of_times = 2
-delay_in_seconds = 5
+delay_in_seconds = 1
 user_data_dir = 'chrome://version/ to check your profile path'
 # https://stackoverflow.com/questions/69246191/how-to-use-certain-chrome-profile-with-selenium-python
 # -- #
@@ -42,9 +41,10 @@ contact.click()
 
 # write text
 message_box = driver.find_element(By.XPATH, "//div[@title='Type a message']")
-for i in range(number_of_times):
+messages = getShrekScript()
+for message in messages:
     message_box.send_keys(message + Keys.ENTER)
-    if i != number_of_times - 1:
+    if message != messages[-1]:
         time.sleep(delay_in_seconds)
     else:
         time.sleep(1)
