@@ -19,21 +19,21 @@ profile_directory = None
 
 # init browser
 driver = CustomChromeDriver(user_data_dir, profile_directory)
-driver.loadUrl("https://web.whatsapp.com/")
+driver.load_url("https://web.whatsapp.com/")
 
 # search target
-search_box = driver.waitForElement(By.XPATH, '//div[@title="Search input textbox"]')
+search_box = driver.wait_for_element(By.XPATH, '//div[@title="Search input textbox"]')
 time.sleep(1)
 search_box.click()
 search_box.send_keys(target)
 
 # interact with target
-contact = driver.waitForElement(By.XPATH, f"//span[@title='{target}']")
+contact = driver.wait_for_element(By.XPATH, f"//span[@title='{target}']")
 time.sleep(1)
 contact.click()
 
 # write text
-message_box = driver.findElement(By.XPATH, "//div[@title='Type a message']")
+message_box = driver.find_element(By.XPATH, "//div[@title='Type a message']")
 for i in range(number_of_times):
     message_box.send_keys(message + Keys.ENTER)
     if i != number_of_times - 1:

@@ -22,11 +22,11 @@ class CustomChromeDriver:
         self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
         self.wait = WebDriverWait(self.driver, 60)
 
-    def loadUrl(self, url):
+    def load_url(self, url):
         self.driver.get(url)
     
-    def waitForElement(self, by=By.ID, value: str=None):
+    def wait_for_element(self, by=By.ID, value: str=None):
         return self.wait.until(EC.presence_of_element_located((by, value)))
     
-    def findElement(self, by=By.ID, value: str=None):
+    def find_element(self, by=By.ID, value: str=None):
         return self.driver.find_element(by, value)
