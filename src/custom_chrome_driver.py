@@ -30,3 +30,12 @@ class CustomChromeDriver:
     
     def find_element(self, by=By.ID, value: str=None):
         return self.driver.find_element(by, value)
+
+    def execute_script(self, script):
+        self.driver.execute_script(script)
+
+    def refresh(self):
+        self.driver.refresh()
+
+    def close(self):
+        self.driver.close()
