@@ -45,3 +45,6 @@ class CustomChromeDriver:
 
     def close(self):
         self.driver.close()
+
+    def quit(self):
+        self.driver.quit()
