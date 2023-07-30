@@ -19,7 +19,7 @@ class CustomChromeDriver:
     def __init__(self, user_data_dir: str=None, profile_directory: str=None, timeout: int=60):
         options = self.__config(user_data_dir, profile_directory)
 
-        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager(driver_version="114.0.5735.90").install()), options=options)
         self.wait = WebDriverWait(self.driver, timeout)
 
     def load_url(self, url):
